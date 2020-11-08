@@ -46,6 +46,14 @@ class DonutMaker {
    retrieveDonutMultiplierCount() {
       return this.donutMultiplierCount;
    }
+resetGame(){
+   this.donutCount = 0;
+   this.autoClickerCount = 0;
+   this.donutMultiplierCount = 0;
 }
+
+
+}
+
 
 export { DonutMaker }

@@ -13,7 +13,13 @@
     startGameButton.addEventListener("click", () => {
         DonutMakerGame.recordClick();
         donutCount.innerHTML = DonutMakerGame.retrieveDonutCount();
+        var colors = ['#760CE8', '#4782B1', '#E8890C'];
+        var nember = Math.floor(Math.random() * 4);
+        document.body.style.background = colors[nember];
+
+      
     });
+   
 
 
     const purchaseAutoClickerCount = document.querySelector("#purchaseAutoClickerCount");
@@ -25,10 +31,8 @@
         update();
     });
 
-    const update = function(){
-        donutCount.innerHTML = DonutMakerGame.retrieveDonutCount();
-    };
-
+   
+   
     const DonutMultiplierCount = document.querySelector("#DonutMultiplierCount");
     const DonutMultiplierCountButton = document.querySelector("#DonutMultiplierCountButton");
 
@@ -37,47 +41,22 @@
         DonutMultiplierCount.innerHTML = DonutMakerGame.retrieveDonutMultiplierCount();
         update();
     });
-
+  
     const contactInfo = document.querySelector('#contactInfo');
-    const modal = document.querySelector('#myModule');
-    const closeModal = document.querySelector('#close');
+    const module = document.querySelector('#myModule');
+    const closeModule = document.querySelector('#close');
     contactInfo.addEventListener("click", () => {
         modal.style.display = "block";
     });
-   // '#myModal'
-    closeModal.addEventListener("click",() =>{
-        modal.style.display = "none";
-    });
-
- /*
-    const accelerator = document.querySelector(".floorboard__accelerator");
-
-    accelerator.addEventListener("click", () => {
-        newCar.accelerate();
-        updateDashBoard(newCar);
-    });
-
-    const updateDashBoard = function (car) {
-        const speedometer = document.querySelector(".dashboard__speedometer");
-        speedometer.innerText = car.speed;
-        console.log(car.engineHealth);
-    
-        updateCheckEngineLight(car);
-    
-        updateOilPressureLight(car);
-    
-        updateAlternatorLight(car);
-    }; */
-// // function updateDonutMultiplierButton(){}
-// // const updateAutoClickerCount = function(newDonutMaker) {}
-// // const displayAutoClickerCost = function(newDonutMaker) {}
-// // const updateDonutMultiplierCount = function(newDonutMaker) {}
-// // const displayDonutMultiplierCost = function(newDonutMaker) {}
-// // const displayDonutMultiplierValue = function(newDonutMaker){}
+   const resetButton = document.querySelector('#resetDonutbutton');
+   resetButton.addEventListener("click", () => {
+    DonutMakerGame.resetGame(); 
+    update();
+});
+const update = function(){
+    donutCount.innerHTML = DonutMakerGame.retrieveDonutCount();
+    purchaseAutoClickerCount.innerHTML = DonutMakerGame.retrievePurchaseAutoClicker();
+    DonutMultiplierCount.innerHTML = DonutMakerGame.retrieveDonutMultiplierCount();
+};
 
 
-// const donutCount = function (donutCount) {
-//     DonutMaker.innerText= DonutCount.DonutMaker;
-//     donutCount.innerText = DonutCount.ClickerCount;
-//     console.log(DonutCount.ClickerCount);
-// }
