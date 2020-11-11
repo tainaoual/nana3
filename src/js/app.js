@@ -59,4 +59,7 @@ const update = function(){
     DonutMultiplierCount.innerHTML = DonutMakerGame.retrieveDonutMultiplierCount();
 };
 
-
+setInterval(()=>{
+    DonutMakerGame.autoClickDounuts();
+    update();
+},1000)
